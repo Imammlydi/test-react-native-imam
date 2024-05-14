@@ -1,14 +1,11 @@
 import React from 'react';
 import { Svg, Path } from 'react-native-svg';
 
-const WishlistIcon = ({ color }) => (
-  <Svg width="22" height="22" viewBox="0 0 44 38" fill="none">
+const WishlistIcon = ({ color, size = 21 }) => (
+  <Svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 23" fill="none">
     <Path
-      d="M2 13C2 6.925 6.925 2 13 2C14.7653 1.99875 16.5049 2.42289 18.0715 3.23649C19.6382 4.05009 20.9857 5.22921 22 6.674C23.99 3.847 27.28 2 31 2C37.075 2 42 6.925 42 13C42 24 29 34 22 36.326C15 34 2 24 2 13Z"
-      stroke={color}
-      strokeWidth="2.9"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      d="M12 23L10.26 21.3455C4.08 15.4921 0 11.6316 0 6.89373C0 3.03324 2.904 0 6.6 0C8.688 0 10.692 1.01526 12 2.61962C13.308 1.01526 15.312 0 17.4 0C21.096 0 24 3.03324 24 6.89373C24 11.6316 19.92 15.4921 13.74 21.358L12 23Z"
+      fill={color}
     />
   </Svg>
 );

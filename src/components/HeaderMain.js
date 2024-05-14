@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, StatusBar } from 'react-native';
+import PlanetIcon from './PlanetIcon'; 
 
 const HeaderMain = ({ title }) => {
  
 
   return (
-    <View style={[styles.container, { paddingTop: StatusBar.currentHeight ,}]}>
+    <View style={[styles.container, { paddingTop: 15 ,}]}>
+       <PlanetIcon color="#fff" size={35} />
       <Text style={styles.title}>{title}</Text>
     </View>
   );
@@ -15,16 +17,19 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingBottom:30,
+    paddingHorizontal: 10,
+    paddingBottom:20,
     backgroundColor: '#660072', 
-    borderBottomLeftRadius:25,
-    borderBottomRightRadius:25
+    // paddingTop:StatusBar.currentHeight
+    // borderBottomLeftRadius:25,
+    // borderBottomRightRadius:25
   },
   title: {
     fontSize: 18,
-    color: '#fff', 
+    // color: '#fff', 
     fontFamily: 'Lato-Bold', 
+    color:'#fff',
+    marginLeft:10
   },
 });
 

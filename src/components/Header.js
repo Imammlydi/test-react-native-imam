@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    fontWeight: 'bold',
     color: '#660072',
+    fontFamily:'Lato-Bold'
   },
   placeholder: {
     width: 40, // Menambahkan placeholder untuk menjaga tata letak tetap seimbang

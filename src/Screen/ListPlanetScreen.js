@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { View, Text, StyleSheet, ActivityIndicator, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator, FlatList } from 'react-native';
 import Button1 from '../components/Button1';
 import HeaderMain from '../components/HeaderMain';
 
@@ -9,6 +9,8 @@ const ListPlanetScreen = ({ navigation }) => {
   const [planets, setPlanets] = useState([]);
   const [page, setPage] = useState(1);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
+
+  const colors = ['#7469B6', '#AD88C6', '#E1AFD1', '#FFE6E6'];
 
   useEffect(() => {
     fetchPlanets();
@@ -49,7 +51,10 @@ const ListPlanetScreen = ({ navigation }) => {
     }
   };
 
-
+  const getRandomColor = () => {
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
+  };
 
   if (loading) {
     return (
@@ -67,9 +72,9 @@ const ListPlanetScreen = ({ navigation }) => {
           data={planets}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
-            <View style={styles.cardContainer} >
-              <View style={{ height: 15 }} />
-              <View style={styles.card}>
+            <View style={styles.cardContainer}>
+              <View style={{ height: 8 }} />
+              <View style={[styles.card, { backgroundColor: getRandomColor() }]}>
                 <Text style={styles.cardTitle}>{item.name}</Text>
                 <Text style={styles.cardText}>Climate: {item.climate}</Text>
                 <Text style={styles.cardText}>Population: {item.population}</Text>
@@ -97,31 +102,29 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     marginBottom: 1,
-    marginHorizontal:10
+    marginHorizontal: 10,
   },
   card: {
-    backgroundColor: 'white',
     padding: 10,
-    borderRadius: 10,  
-    // borderWidth: 0.5,
-    borderColor: '#660072',  
-    shadowColor: '#000',  
-    shadowOffset: { width: 0, height: 2 },  
-    shadowOpacity: 0.2, 
-    shadowRadius: 1, 
-    elevation: 3, 
+    borderRadius: 10,
+    borderColor: '#660072',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 0.2,
+    elevation: 0.2,
   },
   cardTitle: {
     fontSize: 18,
     marginBottom: 3,
     color: 'black',
-    fontFamily: 'Lato-Regular',  
+    fontFamily: 'Lato-Regular',
   },
   cardText: {
     fontSize: 16,
     marginBottom: 3,
     color: 'black',
-    fontFamily: 'Lato-Light', 
+    fontFamily: 'Lato-Light',
   },
   loadingContainer: {
     flex: 1,

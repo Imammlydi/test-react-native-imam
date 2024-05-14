@@ -1,3 +1,4 @@
+// AppNavigator.js atau App.js
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -8,7 +9,8 @@ import WishlistScreen from '../Screen/WishlistScreen';
 import { WishlistProvider } from '../context/WishlistContext';
 import HomeIcon from '../components/HomeIcon';
 import WishlistIcon from '../components/WishlistIcon';
-import { Text } from 'react-native';
+import { Text, StatusBar } from 'react-native';
+import FlashMessage from 'react-native-flash-message';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -23,6 +25,7 @@ const MainStack = () => (
 const AppNavigator = () => (
   <WishlistProvider>
     <NavigationContainer>
+      <StatusBar barStyle="dark-content" />
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused }) => {
@@ -45,13 +48,14 @@ const AppNavigator = () => (
         })}
         tabBarOptions={{
           activeTintColor: '#660072',
-          inactiveTintColor: '#dbd7d3',
+          inactiveTintColor: '#dbd7d3', 
         }}
       >
         <Tab.Screen name="Main" component={MainStack} options={{ tabBarLabel: 'Home', headerShown: false }} />
         <Tab.Screen name="Wishlist" component={WishlistScreen} options={{ tabBarLabel: 'Wishlist', headerShown: false }} />
       </Tab.Navigator>
     </NavigationContainer>
+    <FlashMessage position="top" style={{ marginTop: 10, marginHorizontal:10,borderRadius:10, fontFamily:'Lato-Regular'}} />
   </WishlistProvider>
 );
 

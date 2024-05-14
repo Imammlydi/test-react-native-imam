@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { WishlistContext } from '../context/WishlistContext';
 import Header from '../components/Header';
 import AddToListButton from '../components/AddToListButton';
+import { showMessage } from 'react-native-flash-message';
 
 const DetailPlanetScreen = ({ route, navigation }) => {
   const { planet } = route.params;
@@ -10,6 +11,11 @@ const DetailPlanetScreen = ({ route, navigation }) => {
 
   const handleAddToWishlist = () => {
     addToWishlist(planet);
+    showMessage({
+      message: "Added to Wishlist",
+      description: `${planet.name} has been added to your wishlist.`,
+      type: "success",
+    });
   };
 
   return (
@@ -53,14 +59,14 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 18,
     marginBottom: 10,
-    fontFamily: 'sans-serif-condensed',
+    fontFamily: 'Lato-Regular',
   },
   cardContent: {
     marginBottom: 10,
   },
   cardText: {
     fontSize: 16,
-    fontFamily: 'sans-serif-light',
+    fontFamily: 'Lato-Light',
     marginBottom: 5,
     backgroundColor: '#f7f8fa',
     paddingVertical: 5,
@@ -68,7 +74,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
   cardButtonContainer: {
-    alignItems: 'center',
+    alignItems: 'center', // Center the button horizontally
   },
 });
 
