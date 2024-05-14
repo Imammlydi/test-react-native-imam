@@ -1,19 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import ListPlanetScreen from './src/Screen/ListPlanetScreen';
+import React from 'react';
+import AppNavigator from './src/navigation/AppNavigator';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <ListPlanetScreen/>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    
-  },
-});
+const App = () => {
+  return <AppNavigator />;
+};
+
+export default App;
