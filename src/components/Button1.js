@@ -1,4 +1,3 @@
-// src/components/Button1.js
 
 import React, { useContext } from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';

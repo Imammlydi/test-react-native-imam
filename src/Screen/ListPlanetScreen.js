@@ -2,10 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, FlatList, TouchableOpacity } from 'react-native';
 import Button1 from '../components/Button1';
 import HeaderMain from '../components/HeaderMain';
-// import { FontContext } from '../context/AppProvider';  // Import FontContext
 
 const ListPlanetScreen = ({ navigation }) => {
-//   const { isFontLoaded } = useContext(FontContext);  // Menggunakan konteks font
 
   const [loading, setLoading] = useState(true);
   const [planets, setPlanets] = useState([]);
@@ -51,9 +49,7 @@ const ListPlanetScreen = ({ navigation }) => {
     }
   };
 
-//   if (!isFontLoaded) {
-//     return <ActivityIndicator size="large" color="black" />;  // Atau komponen loading lainnya jika diperlukan
-//   }
+
 
   if (loading) {
     return (
