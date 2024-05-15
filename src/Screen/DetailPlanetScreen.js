@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { WishlistContext } from '../context/WishlistContext';
 import Header from '../components/Header';
 import AddToListButton from '../components/AddToListButton';
-import { showMessage } from 'react-native-flash-message';
 
 const DetailPlanetScreen = ({ route, navigation }) => {
   const { planet } = route.params;
@@ -11,11 +10,6 @@ const DetailPlanetScreen = ({ route, navigation }) => {
 
   const handleAddToWishlist = () => {
     addToWishlist(planet);
-    showMessage({
-      message: "Added to Wishlist",
-      description: `${planet.name} has been added to your wishlist.`,
-      type: "success",
-    });
   };
 
   return (
