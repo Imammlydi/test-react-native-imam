@@ -7,6 +7,8 @@ const HeaderMain = ({ title }) => {
 
   return (
     <View style={[styles.container, { paddingTop: 15 ,}]}>
+      <StatusBar backgroundColor="#660072" barStyle="light-content" />
+
        <PlanetIcon color="#fff" size={35} />
       <Text style={styles.title}>{title}</Text>
     </View>

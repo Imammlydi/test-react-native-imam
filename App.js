@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, ActivityIndicator, StyleSheet, StatusBar, Platform } from 'react-native';
+import { View, Text, ActivityIndicator, StyleSheet, StatusBar, LogBox } from 'react-native';
 
 import AppNavigator from './src/navigation/AppNavigator';
 import { FontProvider, FontContext } from './src/context/FontContext';
-
+LogBox.ignoreAllLogs(true);
 
 const App = () => {
   return( 
