@@ -1,5 +1,4 @@
-// AppNavigator.js atau App.js
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -11,6 +10,7 @@ import HomeIcon from '../components/HomeIcon';
 import WishlistIcon from '../components/WishlistIcon';
 import { Text, StatusBar } from 'react-native';
 import FlashMessage from 'react-native-flash-message';
+import SplashScreen from '../components/SplashScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -22,7 +22,24 @@ const MainStack = () => (
   </Stack.Navigator>
 );
 
-const AppNavigator = () => (
+
+
+const AppNavigator = () =>{ 
+  
+  
+  const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 4000); 
+  }, []);
+
+  if (isLoading) {
+    return <SplashScreen />;
+  }
+return  (
+
   <WishlistProvider>
     <NavigationContainer>
       <StatusBar barStyle="dark-content" />
@@ -57,6 +74,6 @@ const AppNavigator = () => (
     </NavigationContainer>
     <FlashMessage position="top" style={{ marginTop: 10, marginHorizontal:10,borderRadius:10, fontFamily:'Lato-Regular'}} />
   </WishlistProvider>
-);
+)};
 
 export default AppNavigator;
