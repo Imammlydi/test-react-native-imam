@@ -26,7 +26,7 @@ const WishlistScreen = () => {
 
   return (
     <>
-      <HeaderMain title={"Wishlist"}/>
+      <HeaderMain title={"Wishlist"} />
       <View style={styles.container}>
         {wishlist.length > 0 ? (
           <FlatList
